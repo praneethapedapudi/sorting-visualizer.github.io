@@ -1,0 +1,180 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.98em;
+    font-weight: bold;
+    text-transform: uppercase;
+    background-color: var(--primary-color);
+}
+
+/* header{
+    background-color: var(--primary-color);
+} */
+nav{
+    background-color: var(--primary-color);
+    /* colour of size and speed names */
+    color: var(--primary-color);
+    display: grid;
+    grid-template-columns: 30% 60%;
+    column-gap: 10%;
+    padding: 0 5%;
+}
+
+nav .array-inputs{
+    display: grid;
+    background-color: transparent;
+    grid-template-columns: 60% 40%;
+    place-content: center;
+    padding: 5% 0%;
+}
+nav ,.array-inputs p{
+    background-color: var(--secondary-color);
+}
+nav .array-inputs #a_size,
+nav .array-inputs #a_speed{
+    padding: 5% 0;
+}
+
+nav .array-inputs #a_generate{
+    background-color: transparent;
+    border: none;
+    outline: none;
+    /* color of genertate new array */
+    color: var(--primary-color);
+    padding: 5% 0 0 0;
+}
+nav .array-inputs #a_generate:hover{
+    cursor: pointer;
+}
+
+nav .hdr_right{
+    display: flex;
+    flex-direction: column;
+    background-color: var(--secondary-color);
+}
+
+nav .hdr_right .nav_heading{
+    display: inline-block;
+    background-color: var(--secondary-color);
+    margin-top:2px;
+    color: var(--primary-color);
+    font-size: 2em;
+    padding: 1% 0;
+    border: 0%;
+}
+
+nav .hdr_right .algorithms{
+    background-color: var(--secondary-color);
+    display: inline-block;
+    font-size: 0.8em;
+    grid-template-columns: repeat(6, 20%);
+    place-content: center;
+    padding: 2% 0;
+}
+
+nav .hdr_right .algorithms button{
+    background-color: transparent;
+    border: none;
+    color: var(--primary-color);
+    outline: none;
+    padding: 1% 0;
+    font-size: 1.5em;
+}
+
+:root{
+    --primary-color: white;
+    --secondary-color: #190b29;
+
+    /* --primary-color: rgb(59, 58, 58);
+    --secondary-color: wheat; */
+}
+
+.dark-theme{
+    --primary-color: #190b29;
+    --secondary-color: white;
+}
+
+nav .hdr_right .algorithms #icon{
+    width: 60px;
+    margin: 0px 0px 0px 40px;
+    cursor: pointer;
+    background-color: var(--secondary-color);
+}
+
+nav .hdr_right .algorithms button:hover{
+    background-color: blue;
+    cursor: pointer;
+}
+
+nav .hdr_right .algorithms .butt_locked:hover,
+nav .hdr_right .algorithms .butt_locked{
+    background-color: transparent;
+    cursor: pointer;
+}
+
+nav .hdr_right .algorithms .butt_selected{
+    background-color: var(--primary-color);
+    color: green;
+}
+
+nav .hdr_right .algorithms .butt_selected:hover{
+    background-color: var(--secondary-color);
+    cursor: pointer;
+}
+
+nav .hdr_right .algorithms .butt_unselected:hover{
+    background-color: blue;
+    cursor: pointer;
+}
+
+section{
+    display: grid;
+    grid-template-columns: 20% 60% 20%;
+    
+}
+
+section .complexity_ctnr{
+    margin-top: 0%;
+}
+
+section .complexity_ctnr .pair_defn{
+    margin-top: 5%;
+}
+
+section .complexity_ctnr .pair_defn p{
+    display: inline;
+}
+
+section .complexity_ctnr .pair_defn p.sub_heading{
+    font-size:  medium;
+    text-transform: none;
+}
+
+section #info1{
+    color: var(--secondary-color);
+    padding: 20% 5%;
+}
+
+section #info1 h3{
+    text-decoration: underline;
+}
+
+section #array_ctnr{
+    display: flex;
+    width: 100%;
+    height: 76.2vh;
+}
+
+section #info2{
+    color: var(--secondary-color);
+    padding: 20% 15%;
+}
+
+section #info2 h3{
+    text-decoration: underline;
+}
+
+.hide{
+    display: none;
+}

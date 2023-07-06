@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sorting Visualizer</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="array-inputs">
+                <p>Size of the array:</p>
+                <input id="a_size" type="range" min=20 max=50 step=1 value=80>
+                <p>Speed of the algorithm:</p>
+                <input id="a_speed" type="range" min=1 max=5 step=1 value=4>
+                <button id="a_generate">Generate new array</button>
+            </div>
+
+            <div class="hdr_right">
+                <p class="nav_heading">Sorting Visualizer</p>
+
+                <div class="algorithms">
+                    <button style="margin: 10px;">Bubble</button>
+                    <button style="margin: 10px;">Selection</button>
+                    <button style="margin: 10px;">Insertion</button>
+                    <button style="margin: 10px;">Merge</button>
+                    <button style="margin: 10px;">Quick</button>
+                    <button style="margin: 10px">Heap</button>
+                    <img src="images/moon.png" id="icon">
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <section>
+        <div id="info1">
+            <h3>TIME COMPLEXITY</h3>
+
+            <div class="complexity_ctnr" id="time_complexity">
+
+                <div class="pair_defn">
+                    <p class="sub_heading">Worst case:</p>
+                    <p id="time_worst"></p>
+                </div>
+
+                <div class="pair_defn">
+                    <p class="sub_heading">Average case:</p>
+                    <p id="time_avg"></p>
+                </div>
+
+                <div class="pair_defn">
+                    <p class="sub_heading">Best case:</p>
+                    <p id="time_best"></p>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div id="array_ctnr">
+
+        </div>
+
+        <div id="info2">
+            <h3>SPACE COMPLEXITY</h3>
+
+            <div class="complexity_ctnr" id="space_complexity">
+
+                <div class="pair_defn">
+                    <p class="sub_heading">Worst case:</p>
+                    <p id="space_worst"></p>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- <div id="info3">
+            <span id="yellow-box"></span>
+            <span>Algorithm is looking at that segment</span>
+            <span id="red-box"></span>
+            <span>Algorithm is changing the segment</span>            
+            <span id="green-box"></span>
+            <span>Segment is placed at final position</span>
+        </div> -->
+
+
+    </section>
+
+    <footer>
+
+    </footer>
+    <script>
+        var icon=document.getElementById("icon");
+        icon.onclick=function(){
+            document.body.classList.toggle("dark-theme");
+            if(document.body.classList.contains("dark-theme")){
+                icon.src="images/moon.png";
+            }else{
+                icon.src="images/sun.png";
+            }
+        }
+    </script>
+    <script src="./Scripts/main.js"></script>
+    <script src="./Scripts/visualizations.js"></script>
+
+    <script src="./Scripts/bubble_sort.js"></script>
+    <script src="./Scripts/selection_sort.js"></script>
+    <script src="./Scripts/insertion_sort.js"></script>
+    <script src="./Scripts/merge_sort.js"></script>
+    <script src="./Scripts/quick_sort.js"></script>
+    <script src="./Scripts/heap_sort.js"></script>
+</body>
+</html>
