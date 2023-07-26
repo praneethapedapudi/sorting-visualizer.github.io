@@ -1,9 +1,9 @@
 function Heap()
 {
     //Setting Time complexities
-    document.getElementById("time_worst").innerText="O(N log N)";
-    document.getElementById("time_avg").innerText="Θ(N log N)";
-    document.getElementById("time_best").innerText="Ω(N log N)";
+    document.getElementById("time_worst").innerText="O(n log n)";
+    document.getElementById("time_avg").innerText="Θ(n log n)";
+    document.getElementById("time_best").innerText="Ω(n log n)";
 
     //Setting Space complexity
     document.getElementById("space_worst").innerText="O(1)";
