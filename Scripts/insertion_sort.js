@@ -1,9 +1,9 @@
 function Insertion()
 {
     //Setting Time complexities
-    document.getElementById("time_worst").innerText="O(N^2)";
-    document.getElementById("time_avg").innerText="Θ(N^2)";
-    document.getElementById("time_best").innerText="Ω(N)";    
+    document.getElementById("time_worst").innerText="O(n^2)";
+    document.getElementById("time_avg").innerText="Θ(n^2)";
+    document.getElementById("time_best").innerText="Ω(n)";    
 
     //Setting Space complexity
     document.getElementById("space_worst").innerText="O(1)";
