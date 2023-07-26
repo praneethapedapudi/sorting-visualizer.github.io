@@ -1,9 +1,9 @@
 function Selection_sort()
 {
     //Setting Time complexities
-    document.getElementById("time_worst").innerText="O(N^2)";
-    document.getElementById("time_avg").innerText="Θ(N^2)";
-    document.getElementById("time_best").innerText="Ω(N^2)";
+    document.getElementById("time_worst").innerText="O(n^2)";
+    document.getElementById("time_avg").innerText="Θ(n^2)";
+    document.getElementById("time_best").innerText="Ω(n^2)";
 
     //Setting Space complexity
     document.getElementById("space_worst").innerText="O(1)";
