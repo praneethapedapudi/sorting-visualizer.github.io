@@ -1,12 +1,12 @@
 function Quick()
 {
     //Setting Time complexities
-    document.getElementById("time_worst").innerText="O(N^2)";
-    document.getElementById("time_avg").innerText="Θ(N log N)";
+    document.getElementById("time_worst").innerText="O(n^2)";
+    document.getElementById("time_avg").innerText="Θ(n log n)";
     document.getElementById("time_best").innerText="Ω(N log N)";
 
     //Setting Space complexity
-    document.getElementById("space_worst").innerText="O(log N)";
+    document.getElementById("space_worst").innerText="O(log n)";
 
     c_delay=0;
 
