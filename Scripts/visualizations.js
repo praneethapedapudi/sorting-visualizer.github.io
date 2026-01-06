@@ -25,10 +25,23 @@ function vis_speed()
 var delay_time=10000/(Math.floor(array_size/10)*speed);        //Decrease numerator to increase speed.
 var c_delay=0;//This is updated ov every div change so that visualization is visible.
 
+// Map color names to CSS variables for theme support
+function getColorVar(color) {
+    var colorMap = {
+        "blue": "var(--bar-default)",
+        "yellow": "var(--bar-compare)",
+        "red": "var(--bar-swap)",
+        "green": "var(--bar-sorted)"
+    };
+    return colorMap[color] || color;
+}
+
 function div_update(cont,height,color)
 {
     window.setTimeout(function(){
-        cont.style=" margin:0% " + margin_size + "%; width:" + (100/array_size-(2*margin_size)) + "%; height:" + height + "%; background-color:" + color + ";";
+        var bgColor = getColorVar(color);
+        cont.setAttribute("data-bar-state", color);
+        cont.style=" margin:0% " + margin_size + "%; width:" + (100/array_size-(2*margin_size)) + "%; height:" + height + "%; background-color:" + bgColor + ";";
     },c_delay+=delay_time);
 }
 
@@ -43,6 +56,13 @@ function div_update(cont,height,color)
 function enable_buttons()
 {
     window.setTimeout(function(){
+        var arrayContainer = document.getElementById("array_ctnr");
+        arrayContainer.classList.add("sorting-complete");
+        
+        setTimeout(function() {
+            arrayContainer.classList.remove("sorting-complete");
+        }, 800);
+        
         for(var i=0;i<butts_algos.length;i++)
         {
             butts_algos[i].classList=[];

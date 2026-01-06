@@ -10,10 +10,20 @@
     <header>
         <nav>
             <div class="array-inputs">
-                <p>Size of the array:</p>
-                <input id="a_size" type="range" min=20 max=50 step=1 value=80>
-                <p>Speed of the algorithm:</p>
-                <input id="a_speed" type="range" min=1 max=5 step=1 value=4>
+                <div class="input-group">
+                    <label for="a_size">Size of the array:</label>
+                    <div class="slider-container">
+                        <input id="a_size" type="range" min=20 max=50 step=1 value=35>
+                        <span id="size-value">35</span>
+                    </div>
+                </div>
+                <div class="input-group">
+                    <label for="a_speed">Speed of the algorithm:</label>
+                    <div class="slider-container">
+                        <input id="a_speed" type="range" min=1 max=5 step=1 value=4>
+                        <span id="speed-value">Fast</span>
+                    </div>
+                </div>
                 <button id="a_generate">Generate new array</button>
             </div>
 
@@ -35,6 +45,12 @@
 
     <section>
         <div id="info1">
+            <div id="algo-info-panel">
+                <h2 id="algo-name">Select an Algorithm</h2>
+                <p id="algo-description">Choose a sorting algorithm above to see how it works</p>
+                <p id="algo-intuition"></p>
+            </div>
+            
             <h3>TIME COMPLEXITY</h3>
 
             <div class="complexity_ctnr" id="time_complexity">
@@ -73,16 +89,27 @@
                 </div>
 
             </div>
-        </div>
 
-        <!-- <div id="info3">
-            <span id="yellow-box"></span>
-            <span>Algorithm is looking at that segment</span>
-            <span id="red-box"></span>
-            <span>Algorithm is changing the segment</span>            
-            <span id="green-box"></span>
-            <span>Segment is placed at final position</span>
-        </div> -->
+            <div id="legend">
+                <h3>LEGEND</h3>
+                <div class="legend-item">
+                    <span class="legend-box" style="background-color: var(--bar-default);"></span>
+                    <span>Unsorted</span>
+                </div>
+                <div class="legend-item">
+                    <span class="legend-box" style="background-color: var(--bar-compare);"></span>
+                    <span>Comparing</span>
+                </div>
+                <div class="legend-item">
+                    <span class="legend-box" style="background-color: var(--bar-swap);"></span>
+                    <span>Swapping</span>
+                </div>
+                <div class="legend-item">
+                    <span class="legend-box" style="background-color: var(--bar-sorted);"></span>
+                    <span>Sorted</span>
+                </div>
+            </div>
+        </div>
 
 
     </section>
@@ -90,16 +117,67 @@
     <footer>
 
     </footer>
+    
+    <div class="accent-preset-selector">
+        <button class="accent-preset-btn" data-preset="default" style="background: #6366f1;" title="Default Accent"></button>
+        <button class="accent-preset-btn" data-preset="cyan" style="background: #06b6d4;" title="Cyan Accent"></button>
+        <button class="accent-preset-btn" data-preset="violet" style="background: #8b5cf6;" title="Violet Accent"></button>
+        <button class="accent-preset-btn" data-preset="emerald" style="background: #10b981;" title="Emerald Accent"></button>
+    </div>
     <script>
+        // Theme persistence and toggle
         var icon=document.getElementById("icon");
+        var isDark = localStorage.getItem('theme') === 'dark' || (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches);
+        if(isDark) {
+            document.body.classList.add("dark-theme");
+            icon.src="images/sun.png";
+        }
+        
         icon.onclick=function(){
             document.body.classList.toggle("dark-theme");
-            if(document.body.classList.contains("dark-theme")){
-                icon.src="images/moon.png";
-            }else{
-                icon.src="images/sun.png";
-            }
+            var isDarkNow = document.body.classList.contains("dark-theme");
+            localStorage.setItem('theme', isDarkNow ? 'dark' : 'light');
+            icon.src = isDarkNow ? "images/sun.png" : "images/moon.png";
         }
+
+        // Update slider value displays
+        var sizeInput = document.getElementById('a_size');
+        var sizeValue = document.getElementById('size-value');
+        var speedInput = document.getElementById('a_speed');
+        var speedValue = document.getElementById('speed-value');
+        
+        var speedLabels = ['Very Slow', 'Slow', 'Medium', 'Fast', 'Very Fast'];
+        speedValue.textContent = speedLabels[speedInput.value - 1];
+        
+        sizeInput.addEventListener('input', function() {
+            sizeValue.textContent = this.value;
+        });
+        
+        speedInput.addEventListener('input', function() {
+            speedValue.textContent = speedLabels[this.value - 1];
+        });
+
+        // Accent preset switching
+        var presetButtons = document.querySelectorAll('.accent-preset-btn');
+        var currentPreset = 'default';
+        
+        presetButtons.forEach(function(btn) {
+            btn.addEventListener('click', function() {
+                var preset = this.getAttribute('data-preset');
+                document.body.classList.remove('accent-preset-cyan', 'accent-preset-violet', 'accent-preset-emerald');
+                
+                if (preset !== 'default') {
+                    document.body.classList.add('accent-preset-' + preset);
+                }
+                
+                presetButtons.forEach(function(b) { b.classList.remove('active'); });
+                this.classList.add('active');
+                currentPreset = preset;
+            });
+        });
+        
+        // Set default preset as active
+        document.querySelector('.accent-preset-btn[data-preset="default"]').classList.add('active');
     </script>
     <script src="./Scripts/main.js"></script>
     <script src="./Scripts/visualizations.js"></script>
